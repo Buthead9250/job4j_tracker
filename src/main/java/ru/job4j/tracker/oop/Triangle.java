@@ -12,8 +12,7 @@ public class Triangle {
     }
 
     public double period(double a, double b, double c) {
-        double pp = (a + b + c) / 2;
-        return pp;
+        return ((a + b + c) / 2);
     }
 
     public boolean exist(double ab, double ac, double bc) {
