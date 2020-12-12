@@ -14,4 +14,45 @@ public class TrackerTest {
         Item result = tracker.findById(item.getId());
         assertThat(result.getName(), is(item.getName()));
     }
+
+    @Test
+    public void findItemID() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("one", 1);
+        Item item2 = new Item("two", 2);
+        Item item3 = new Item("three", 3);
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        Item result = tracker.findById(2);
+        assertThat(result, is(item2));
+    }
+
+    @Test
+    public void findAllTest() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("one", 1);
+        Item item2 = new Item("two", 2);
+        Item item3 = new Item("three", 3);
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        Item[] result = tracker.findAll();
+        Item[] expected = {item1, item2, item3};
+        assertThat(result, is(expected));
+    }
+
+    @Test
+    public void findByNameTest() {
+        Tracker tracker = new Tracker();
+        Item item1 = new Item("one", 1);
+        Item item2 = new Item("two", 2);
+        Item item3 = new Item("three", 3);
+        tracker.add(item1);
+        tracker.add(item2);
+        tracker.add(item3);
+        Item[] result = tracker.findByName("three");
+        Item[] expected = {item3};
+        assertThat(result, is(expected));
+    }
 }
