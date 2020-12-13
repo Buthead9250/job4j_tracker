@@ -12,6 +12,8 @@ public class StartUI {
         Tracker tracker = new Tracker();
         tracker.add(item);
         System.out.println(tracker.findById(item.getId()));
+        Item item1 = new Item("Object", 22);
+        System.out.println(item1);
     }
 
 
