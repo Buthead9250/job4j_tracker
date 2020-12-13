@@ -30,15 +30,7 @@ public class Tracker {
     }
 
     public Item[] findAll() {
-        int count = 0;
-        Item[] itemWithoutNull = new Item[size];
-        for (int i = 0; i < size; i++) {
-            if (items[i] != null) {
-                itemWithoutNull[count] = items[i];
-                count++;
-            }
-        }
-        return Arrays.copyOf(itemWithoutNull, count);
+        return Arrays.copyOf(items, size);
     }
 
     public Item[] findByName(String key) {
