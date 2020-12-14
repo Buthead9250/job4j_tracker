@@ -42,6 +42,7 @@ public class Item {
 
     @Override
     public String toString() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MMMM-EEEE-yyyy HH:mm:ss");
         return "Item{" + "id=" + id + ", name='"
                 + name + '\'' + ", created="
                 + created.format(formatter) + '}';
