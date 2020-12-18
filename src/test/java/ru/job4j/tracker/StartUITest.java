@@ -28,4 +28,25 @@ public class StartUITest {
         assertThat(created.length, is(expected));
         assertThat(answers[1], is(created[1].getName()));
     }
+
+    @Test
+    public void whenReplaceItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {String.valueOf(item.getId()), "replaced item"};
+        StartUI.replaceItem(new StubInput(answers), tracker);
+        Item replaced = tracker.findById(item.getId());
+        assertThat(replaced.getName(), is("replaced item"));
+    }
+
+    @Test
+    public void testDeleteItem() {
+        Tracker tracker = new Tracker();
+        Item item = new Item("new item");
+        tracker.add(item);
+        String[] answers = {String.valueOf(item.getId())};
+        StartUI.deleteItem(new StubInput(answers), tracker);
+        assertNull(tracker.findById(item.getId()));
+    }
 }
