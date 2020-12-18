@@ -11,11 +11,11 @@ public class StartUI {
             showMenu();
             int select = input.askInt("Select: ");
             if (select == 0) {
-                addItem(input, tracker);
+                createItem(input, tracker);
             } else if (select == 1) {
                 allItem(tracker);
             } else if (select == 2) {
-                editItem(input, tracker);
+                replaceItem(input, tracker);
             } else if (select == 3) {
                 deleteItem(input, tracker);
             } else if (select == 4) {
@@ -29,7 +29,7 @@ public class StartUI {
         }
     }
 
-    public static void addItem(Input input, Tracker tracker) {
+    public static void createItem(Input input, Tracker tracker) {
         System.out.println("=== Create a new Item ====");
         String name = input.askStr("Enter name: ");
         Item item = new Item();
@@ -45,7 +45,7 @@ public class StartUI {
         }
     }
 
-    public static void editItem(Input input, Tracker tracker) {
+    public static void replaceItem(Input input, Tracker tracker) {
         System.out.println("=== Edit item ===");
         int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter a new name for changed item: ");

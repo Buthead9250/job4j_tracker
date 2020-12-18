@@ -15,6 +15,10 @@ public class Item {
         this.id = id;
     }
 
+    public Item(String name) {
+        this.name = name;
+    }
+
     public Item(String name, int id) {
         this.name = name;
         this.id = id;
