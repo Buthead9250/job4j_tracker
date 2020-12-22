@@ -1,6 +1,11 @@
 package ru.job4j.tracker;
 
 public class EditAction implements UserAction {
+    private final Output out;
+
+    public EditAction(Output out) {
+        this.out = out;
+    }
 
     @Override
     public String name() {
@@ -14,9 +19,9 @@ public class EditAction implements UserAction {
         Item itemEdit = new Item();
         itemEdit.setName(name);
         if (tracker.replace(id, itemEdit)) {
-            System.out.println("Item with id: " + id + " was edit");
+            out.println("Item with id: " + id + " was edit");
         } else {
-            System.out.println("Item with id: " + id + "wasn't edit");
+            out.println("Item with id: " + id + "wasn't edit");
         }
         return true;
     }
