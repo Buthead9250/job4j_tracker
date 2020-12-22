@@ -17,7 +17,6 @@ public class FindByNameAction implements UserAction {
         } else {
             System.out.println("Item not found");
         }
-        System.out.println("Result: " + System.lineSeparator() + itemByName);
         return true;
     }
 }
