@@ -1,9 +1,5 @@
 package ru.job4j.tracker;
 
-import com.sun.org.apache.xml.internal.serialize.LineSeparator;
-
-import javax.sound.midi.Track;
-
 public class StartUI {
     private final Output out;
 
@@ -16,8 +12,12 @@ public class StartUI {
         while (run) {
             showMenu(actions);
             int select = input.askInt("Select: ");
-            System.out.println();
-            run = actions[select].execute(input, tracker);
+            if (select < 0 || select >= actions.length) {
+                out.println("Wrong input, you can select: 0.. " + (actions.length - 1));
+                continue;
+            }
+            UserAction action = actions[select];
+            run = action.execute(input, tracker);
             System.out.println();
         }
     }
@@ -31,7 +31,7 @@ public class StartUI {
 
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
-        Input input = new ConsoleInput();
+        Input input = new ValidateInput();
         Tracker tracker = new Tracker();
         UserAction[] actions = {
                 new CreateAction(output),
