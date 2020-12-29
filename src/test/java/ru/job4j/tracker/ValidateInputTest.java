@@ -41,4 +41,15 @@ public class ValidateInputTest {
         assertThat(selected1, is(1));
         assertThat(selected2, is(11));
     }
+
+    @Test
+    public void whenInvalidMinusInput() {
+        Output out = new StubOutput();
+        Input in = new StubInput(
+                new String[] {"-1"}
+        );
+        ValidateInput input = new ValidateInput(out, in);
+        int selected = input.askInt("Enter menu:");
+        assertThat(selected, is(-1));
+    }
 }
