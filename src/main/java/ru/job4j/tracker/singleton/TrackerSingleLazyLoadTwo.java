@@ -10,7 +10,7 @@ import ru.job4j.tracker.Tracker;
  * нам нужно явно создать конструктор по умолчанию и присвоить ему модификатор private.
  */
 public class TrackerSingleLazyLoadTwo {
-    private static TrackerSingleLazyLoadTwo instance;
+    private static Tracker instance;
 
     private TrackerSingleLazyLoadTwo() {
     }
@@ -19,15 +19,15 @@ public class TrackerSingleLazyLoadTwo {
      * Метод проверяет статическое поле instance,
      * если поле не загружено, оно инициализируется новосозданным объектом.
      */
-    public static TrackerSingleLazyLoadTwo getInstance() {
+    public static Tracker getTracker() {
         if (instance == null) {
-            instance = new TrackerSingleLazyLoadTwo();
+            instance = new Tracker();
         }
         return instance;
     }
 
     public static void main(String[] args) {
-        TrackerSingleLazyLoadTwo tracker = TrackerSingleLazyLoadTwo.getInstance();
+        Tracker tracker = TrackerSingleLazyLoadTwo.getTracker();
         System.out.println(tracker);
     }
 }
