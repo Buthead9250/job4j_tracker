@@ -1,9 +1,6 @@
 package ru.job4j.tracker.bank;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
@@ -35,15 +32,17 @@ public class BankService {
 
     public Account findByRequisite(String passport, String requisite) {
         User user = findByPassport(passport);
-        Account account = null;
-        if (user != null) {
-            List<Account> accounts = users.get(user);
-            int index = accounts.indexOf(new Account(requisite, 0));
-            if (index != -1) {
-                account = accounts.get(index);
+        Account rslAccount = null;
+        List<Account> accounts = users.get(user);
+        if (accounts != null) {
+            for (Account account : accounts) {
+                if (account.getRequisite().equals(requisite)) {
+                    rslAccount = account;
+                    break;
+                }
             }
         }
-        return account;
+        return rslAccount;
     }
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
