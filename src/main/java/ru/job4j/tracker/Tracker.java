@@ -38,7 +38,6 @@ public class Tracker {
         for (int i = 0; i < items.size(); i++) {
             Item item = items.get(i);
             if (item.getName().equals(key)) {
-                itemWithEqName[countEquals++] = item;
                 itemWithEqName.add(item);
             }
         }
