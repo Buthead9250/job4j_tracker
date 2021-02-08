@@ -9,10 +9,10 @@ import java.util.List;
 public class ItemSorter {
     public static void main(String[] args) {
         List<Item> items = Arrays.asList(
-                new Item(1, "Item 1"),
-                new Item(4, "Item 4"),
-                new Item(2, "Item 2"),
-                new Item(3, "Item 3")
+                new Item("Item 1", 1),
+                new Item("Item 4", 4),
+                new Item("Item 2", 2),
+                new Item("Item 3", 3)
         );
         System.out.println("Стартовый список");
         System.out.println(items);
