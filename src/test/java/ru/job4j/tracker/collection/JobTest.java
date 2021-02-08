@@ -66,6 +66,6 @@ public class JobTest {
                 new Job("Impl task", 1),
                 new Job("Fix bug", 1)
         );
-        assertThat(rsl, equalTo(0));
+        assertThat(rsl, equalTo(3));
     }
 }
