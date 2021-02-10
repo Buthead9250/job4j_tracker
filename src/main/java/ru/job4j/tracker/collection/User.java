@@ -7,6 +7,11 @@ public class User implements Comparable<User> {
     private String name;
     private int age;
 
+    public User(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
     public String getName() {
         return name;
     }
@@ -31,14 +36,10 @@ public class User implements Comparable<User> {
                 + '}';
     }
 
-    public User(String name, int age) {
-        this.name = name;
-        this.age = age;
-    }
-
     @Override
     public int compareTo(User o) {
-        return !(name.equals(o.name)) ? new SortByUserName().compare(this, o) : Integer.compare(age, o.age);
+        int rsl = this.name.compareTo(o.name);
+        return rsl != 0 ? rsl : Integer.compare(this.age, o.age);
     }
 
     @Override
