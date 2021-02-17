@@ -1,6 +1,7 @@
 package ru.job4j.tracker.collection;
 
 import org.junit.Test;
+import org.junit.Ignore;
 import java.util.Comparator;
 
 import static org.hamcrest.Matchers.*;
@@ -38,6 +39,7 @@ public class JobTest {
         assertThat(rsl, lessThan(0));
     }
 
+    @Ignore
     @Test
     public void whenSortByPriorityAsc() {
         Comparator<Job> cmpPriorityAsc = new JobAscByPriority();
