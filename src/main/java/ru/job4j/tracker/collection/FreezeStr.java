@@ -9,11 +9,8 @@ public class FreezeStr {
         char[] rightArray = right.toCharArray();
         Map<Character, Integer> check = new HashMap<>();
         for (Character simbol : leftArray) {
-            if (check.containsKey(simbol)) {
-                check.compute(simbol, (key, value) -> value + 1);
-            } else {
-                check.put(simbol, 1);
-            }
+            check.computeIfPresent(simbol, (key, value) -> value + 1);
+            check.putIfAbsent(simbol, 1);
         }
         for (Character simbol : rightArray) {
             if (!check.containsKey(simbol)) {
