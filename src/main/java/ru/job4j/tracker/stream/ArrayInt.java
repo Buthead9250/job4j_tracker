@@ -11,7 +11,8 @@ public class ArrayInt {
             numberList.add(i);
         }
         List<Integer> positiveNum = numberList.stream()
-                .filter(num -> num > 0).collect(Collectors.toList());
+                .filter(num -> num > 0)
+                .collect(Collectors.toList());
         positiveNum.forEach(System.out::println);
     }
 }
