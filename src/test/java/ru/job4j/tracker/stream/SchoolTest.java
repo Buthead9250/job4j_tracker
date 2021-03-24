@@ -3,6 +3,8 @@ package ru.job4j.tracker.stream;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Predicate;
 
@@ -65,6 +67,24 @@ public class SchoolTest {
         expected.add(new Student(10, "Surname1"));
         expected.add(new Student(30, "Surname3"));
         expected.add(new Student(40, "Surname4"));
+        assertThat(rsl, is(expected));
+    }
+
+    @Test
+    public void whenMapCollect() {
+        List<Student> input = List.of(
+                new Student(10, "Surname1"),
+                new Student(20, "Surname2"),
+                new Student(10, "Surname1"),
+                new Student(30, "Surname3")
+        );
+        School sc = new School();
+        Map<String, Student> rsl = sc.mapCollect(input);
+        Map expected = Map.of(
+                "Surname1", new Student(10, "Surname1"),
+                "Surname2", new Student(20, "Surname2"),
+                "Surname3", new Student(30, "Surname3")
+        );
         assertThat(rsl, is(expected));
     }
 }
