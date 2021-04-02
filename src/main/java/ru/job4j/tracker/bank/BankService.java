@@ -27,7 +27,7 @@ public class BankService {
         Optional<User> user = findByPassport(passport);
         if (user.isPresent()) {
             List<Account> accounts = users.get(user.get());
-            if(!accounts.contains(account)) {
+            if (!accounts.contains(account)) {
                 accounts.add(account);
             }
         }
@@ -78,7 +78,8 @@ public class BankService {
         boolean rsl = false;
         Optional<Account> srcAccount = findByRequisite(srcPassport, srcRequisite);
         Optional<Account> destAccount = findByRequisite(destPassport, destRequisite);
-        if (srcAccount.isPresent() && destAccount.isPresent() && (srcAccount.get().getBalance() - amount) >= 0) {
+        if (srcAccount.isPresent() && destAccount.isPresent()
+                && (srcAccount.get().getBalance() - amount) >= 0) {
             srcAccount.get().setBalance(srcAccount.get().getBalance() - amount);
             destAccount.get().setBalance(destAccount.get().getBalance() + amount);
             rsl = true;
