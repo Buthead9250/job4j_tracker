@@ -13,14 +13,7 @@ public class DepDescComp implements Comparator<String> {
      */
     @Override
     public int compare(String left, String right) {
-        int result = 0;
-        String[] splitLeft = left.split("/");
-        String[] splitRight = right.split("/");
-        if (splitLeft[0].equals(splitRight[0])) {
-            result = left.compareTo(right);
-        } else {
-            result = right.compareTo(left);
-        }
-        return result;
+        int result = right.split("/")[0].compareTo(left.split("/")[0]);
+        return result == 0 ? right.compareTo(left) : result;
     }
 }

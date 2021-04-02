@@ -25,8 +25,7 @@ public class Departments {
             }
         }
         rsl.addAll(tmp);
-        rsl.sort(Comparator.naturalOrder());
-        return rsl;
+        return new ArrayList<>(tmp);
     }
 
     /**
